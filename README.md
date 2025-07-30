@@ -48,11 +48,22 @@ Réduire le poids de chaque élément dans les cartes pour moins consommer d'én
 - Réduction de 50-80% de la taille
 - Lazy loading avec attributs optimisés
 
-### Impact Attendu :
+### Optimisation vers une seule requête unifiée
 
-- Bundle size : Réduction de 10-20% grâce au tree shaking
-- Temps de chargement : Amélioration grâce au lazy loading
-- Image : Réduction de 50-80% de la taille
-- Performance : Chargement plus fluide des assets externes
+- Un seul setInterval dans big.js au lieu de 4 séparés
+- API unifiée `/api/unified` au lieu de `/api/server` + `/api/payload`
+- Réduction des event listeners de 500 à 10
+- Fonction unifiée `unifiedCalculations()` pour tous les calculs
+- Économie : ~2 requêtes/minute → 1 requête/minute
+
+### Optimisations CSS drastiques
+
+- Animation simplifiée : Suppression des transformations scale() coûteuses
+- Classes de couleur réduites : De 300 à 20 classes (93% de réduction)
+- Ombres optimisées : De 10 à 5 niveaux (50% de réduction)
+- Padding simplifié : De 5 à 3 niveaux (40% de réduction)
+- Effet grain supprimé : Élimination de l'animation 120s coûteuse
+- Filtres optimisés : blur() réduit de 24px à 12px
+- Taille CSS : Réduction de ~60% du fichier
 
 ---
